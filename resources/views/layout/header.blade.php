@@ -3,7 +3,7 @@
     <div class="container">
       <div class="navbar-content">
         <a href="#" class="navbar-brand">
-          Noble<span>UI</span>
+          Dart <span>Dashboard</span>
         </a>
         <form class="search-form">
           <div class="input-group">

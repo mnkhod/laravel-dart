@@ -23546,6 +23546,7 @@ address p {
 }
 
 .horizontal-menu .navbar .navbar-content .navbar-nav .nav-item .nav-link {
+  font-size: 3em;
   color: #535353;
   padding: 0;
   position: relative;
@@ -23702,7 +23703,7 @@ address p {
 .horizontal-menu .navbar .navbar-content .navbar-nav .nav-item.nav-apps .dropdown-menu .dropdown-body .dropdown-item:hover .arrow,
 .horizontal-menu .navbar .navbar-content .navbar-nav .nav-item.nav-notifications .dropdown-menu .dropdown-body .dropdown-item:hover .arrow,
 .horizontal-menu .navbar .navbar-content .navbar-nav .nav-item.nav-messages .dropdown-menu .dropdown-body .dropdown-item:hover .arrow {
-  color: #727cf5;
+  color: #5E50F9;
 }
 
 .horizontal-menu .navbar .navbar-content .navbar-nav .nav-item.nav-apps .dropdown-menu .dropdown-body .dropdown-item .icon,
@@ -29095,6 +29096,7 @@ select.border-danger-muted:focus,
 }
 
 .nav.nav-tabs .nav-item .nav-link {
+  font-size: 4em;
   border-color: #e8ebf1;
   border-bottom: 0;
   color: #000;
@@ -31484,6 +31486,20 @@ div.tagsinput span.tag a {
 .rtl .wizard > .steps > ul > li,
 .rtl .wizard > .actions > ul > li {
   float: right;
+}
+
+.color-white-hover:hover {
+  color: white !important;
+}
+
+.color-white-hover.active {
+  color: white !important;
+  background: #58c5b0 !important;
+  border: none !important;
+}
+
+.clr-primary {
+  color: #8890f3;
 }
 
 

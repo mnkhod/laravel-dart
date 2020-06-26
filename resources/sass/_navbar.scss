@@ -97,6 +97,7 @@
           @include display-flex;
           @include align-items(center);
           .nav-link {
+            font-size: 3em;
             color: #535353;
             padding: 0;
             position: relative;
@@ -229,7 +230,7 @@
                   &:hover {
                     background: rgb(248, 248, 248);
                     .arrow {
-                      color: theme-color(primary);
+                      color: #5E50F9;
                     }
                   }
                   .icon {

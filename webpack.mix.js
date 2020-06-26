@@ -22,6 +22,7 @@ mix.js('resources/js/app.js', 'public/js')
 
 
 // Copy plugin files to public folder
+/*
 mix.copyDirectory('node_modules/feather-icons/dist', 'public/assets/plugins/feather-icons')
   .copyDirectory('node_modules/flag-icon-css', 'public/assets/plugins/flag-icon-css')
   .copyDirectory('node_modules/@mdi/font', 'public/assets/plugins/@mdi')
@@ -87,14 +88,4 @@ mix.copyDirectory('node_modules/feather-icons/dist', 'public/assets/plugins/feat
     'public/assets/plugins/fullcalendar')
   .copyDirectory('node_modules/jquery-ui-dist/jquery-ui.min.js', 'public/assets/plugins/jquery-ui-dist/jquery-ui.min.js')
   .copyDirectory('node_modules/moment/min/moment.min.js', 'public/assets/plugins/moment/moment.min.js')
-  
-  
-
-  
-
-
-
-
-  
-
-  
+*/
