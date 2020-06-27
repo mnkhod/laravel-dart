@@ -5,7 +5,7 @@
 <div class="container-fluid px-5 my-5">
   <div class="row">
     <div class="col-sm-5">
-      <div class="card">
+      <div class="card shadow animated slideInDown">
         <div class="card-header bg-warning">
           <h2 class="h3 text-white">Profile</h2>
         </div>
@@ -25,7 +25,7 @@
       <form action="">
         <div class="row">
           <div class="col-sm-6 d-flex align-items-center justify-content-center">
-            <div class="card w-100">
+            <div class="card shadow w-100 animated slideInDown">
               <div class="card-header bg-primary">
                 <h2 class="h4 text-white">Account</h2>
               </div>
@@ -46,7 +46,7 @@
             </div>
           </div>
           <div class="col-sm-6 d-flex align-items-center justify-content-center">
-            <div class="card w-100 h-100">
+            <div class="card shadow w-100 h-100 animated slideInRight">
               <div class="card-header bg-danger">
                 <h2 class="h4 text-white">Information</h2>
               </div>
@@ -66,19 +66,19 @@
 
         <div class="row mt-3">
           <div class="col-sm-12">
-            <div class="card">
+            <div class="card shadow animated slideInUp">
               <div class="card-body">
                 <div class="my-4 d-flex justify-content-around">
                   <h5 class="my-2 d-inline">Location</h5>
                   <input type="text" class="w-75 form-control d-inline rounded-pill text-center" autocomplete="off" placeholder="Username" value="Ulaanbaatar">
                 </div>
                 <div class="my-4 d-flex justify-content-around">
-                  <h5 class="my-2 d-inline">Recovery Mail</h5>
+                  <h5 class="my-2 d-inline">Recovery Email</h5>
                   <input type="email" class="form-control rounded-pill d-inline w-75 text-center" autocomplete="off" placeholder="Username" value="kainin.krystos@gmail.com">
                 </div>
                 <div class="d-flex justify-content-end ">
-                  <button class="btn btn-danger btn px-4 mx-2">Delete</button>
-                  <button class="btn btn-success btn px-4 mx-2">Update</button>
+                  <button class="btn btn-outline-danger btn px-5 mx-2 shadow">Delete</button>
+                  <button class="btn btn-outline-success btn px-5 mx-2 shadow">Update</button>
                 </div>
               </div>
             </div>

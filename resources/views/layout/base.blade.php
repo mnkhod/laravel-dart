@@ -14,6 +14,7 @@
   <!-- plugin css -->
   <link href="{{ asset('assets/fonts/feather-font/css/iconfont.css') }}" rel="stylesheet" />
   <link href="{{ asset('assets/plugins/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ asset('assets/plugins/animate-css/animate.min.css') }}">
   <!-- end plugin css -->
 
   @stack('plugin-styles')
@@ -24,13 +25,15 @@
 
   @stack('style')
 </head>
-<body data-base-url="{{url('/')}}">
+<body  data-base-url="{{url('/')}}" class="bg-white">
 
   <script src="{{ asset('assets/js/spinner.js') }}"></script>
 
   <!-- Nav Bar -->
-  <nav class="navbar navbar-expand-lg px-5 py-3 navbar-light bg-light">
-    <a class="navbar-brand flex align-items-center" href="#"><span class="btn btn-outline-danger btn-lg mr-2">Dart</span> <span class="font-weight-bold text-primary">Admin Dashboard</span> </a>
+  <nav class="navbar  navbar-expand-lg px-5 py-3 navbar-light bg-white">
+    <a class="navbar-brand flex align-items-center" href="#">
+        <span class="btn btn-outline-danger btn-lg mr-2 animated bounceInLeft delay-1s"><i class="pr-2" data-feather="crosshair"></i>Dart</span> 
+        <span class="font-weight-bold text-primary animated fadeIn delay-3s h5">Admin Dashboard</span> </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,17 +41,32 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent1">
       <ul class="navbar-nav">
-        <li class="nav-item active px-2">
-          <a class="nav-link btn btn-outline-secondary px-4 href rounded-pill color-white-hover" href="#"><i class="pr-2" data-feather="tag"></i>Category</a>
+        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#"><i class="pr-2 text-success" data-feather="users"></i>Players</a>
         </li>
-        <li class="nav-item active px-2">
-          <a class="nav-link btn btn-outline-secondary px-4 href rounded-pill color-white-hover" href="#"><i class="pr-2" data-feather="shopping-bag"></i>Product</a>
+        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#"><i class="pr-2 text-warning" data-feather="paperclip"></i>Blogs</a>
         </li>
-        <li class="nav-item active px-2">
-          <a class="nav-link btn btn-outline-secondary px-4 href rounded-pill color-white-hover" href="#"><i class="pr-2" data-feather="shopping-cart"></i>Chart</a>
+        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#"><i class="pr-2 text-info" data-feather="sliders"></i>Pages</a>
         </li>
-        <li class="nav-item active px-2">
-          <a class="nav-link btn btn-outline-secondary px-4 href rounded-pill color-white-hover active" href="#"><i class="pr-2" data-feather="user"></i>Profile</a>
+        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#"><i class="pr-2 text-danger" data-feather="tag"></i>Categories</a>
+        </li>
+        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#"><i class="pr-2 text-primary" data-feather="shopping-bag"></i>Products</a>
+        </li>
+        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#"><i class="pr-2 text-success" data-feather="shopping-cart"></i>Chart</a>
+        </li>
+        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#"><i class="pr-2 text-warning" data-feather="codepen"></i>Compare</a>
+        </li>
+        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover active" href="#"><i class="pr-2" data-feather="user"></i>Profile</a>
+        </li>
+        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#"><i class="pr-2" data-feather="log-out"></i>Sign Out</a>
         </li>
       </ul>
     </div>

@@ -31489,13 +31489,19 @@ div.tagsinput span.tag a {
 }
 
 .color-white-hover:hover {
+  background: black !important;
+  color: white !important;
+  border: solid black !important;
+}
+
+.color-white-hover i:hover {
   color: white !important;
 }
 
 .color-white-hover.active {
+  background: black !important;
   color: white !important;
-  background: #58c5b0 !important;
-  border: none !important;
+  border: solid black !important;
 }
 
 .clr-primary {
