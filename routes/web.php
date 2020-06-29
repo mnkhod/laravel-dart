@@ -11,13 +11,25 @@
 |
 */
 
+use App\Players;
+
 Route::get('/', function () {
   return redirect('doc');
 });
 
 Route::group(['prefix' => 'admin'], function(){
   Route::get('profile', function () { return view('/admin/profile',prepareNavigation('Profile')); })->name('admin.profile');
-  Route::get('players', function () { return view('/admin/players', prepareNavigation('Players')); })->name('admin.players');
+
+  Route::get('players', function () { 
+    $arr = prepareNavigation('Players');
+
+    $players = Players::all()->toArray();
+
+    $arr += array('players' => $players);
+
+    return view('/admin/players', $arr); 
+  })->name('admin.players');
+
   Route::get('blogs', function () { return view('/admin/blogs', prepareNavigation('Blogs')); })->name('admin.blogs');
   Route::get('pages', function () { return view('/admin/pages', prepareNavigation('Pages')); })->name('admin.pages');
   Route::get('categories', function () { return view('/admin/categories', prepareNavigation('Category')); })->name('admin.categories');
