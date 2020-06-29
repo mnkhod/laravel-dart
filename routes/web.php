@@ -12,23 +12,36 @@
 */
 
 Route::get('/', function () {
-    return redirect('doc');
-});
-
-Route::get('/admin', function(){
-  return redirect('admin/profile');
+  return redirect('doc');
 });
 
 Route::group(['prefix' => 'admin'], function(){
-  Route::get('profile', function () { return view('admin.profile'); });
-  Route::get('dashboard', function () { return view('admin.index'); });
+  Route::get('profile', function () { return view('/admin/profile',prepareNavigation('Profile')); })->name('admin.profile');
+  Route::get('players', function () { return view('/admin/players', prepareNavigation('Players')); })->name('admin.players');
+  Route::get('blogs', function () { return view('/admin/blogs', prepareNavigation('Blogs')); })->name('admin.blogs');
+  Route::get('pages', function () { return view('/admin/pages', prepareNavigation('Pages')); })->name('admin.pages');
+  Route::get('categories', function () { return view('/admin/categories', prepareNavigation('Category')); })->name('admin.categories');
+  Route::get('products', function () { return view('/admin/products', prepareNavigation('Product')); })->name('admin.products');
+  Route::get('chart', function () { return view('/admin/chart', prepareNavigation('Chart')); })->name('admin.chart');
+  Route::get('compare', function () { return view('/admin/compare', prepareNavigation('Compare')); })->name('admin.compare');
 });
 
 
+
+Route::get('admin', function(){
+  return redirect('/admin/profile');
+});
 
 Route::get('/doc',function(){ 
   return view('dashboard'); 
 });
+
+
+
+
+
+
+
 
 
 
@@ -120,10 +133,6 @@ Route::get('/doc',function(){
       Route::get('500', function () { return view('pages.error.500'); });
   });
 
-
-
-
-
 Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');
     return "Cache is cleared";
@@ -133,3 +142,49 @@ Route::get('/clear-cache', function() {
 Route::any('/{page?}',function(){
     return View::make('pages.error.404');
 })->where('page','.*');
+
+
+// UTILITY
+
+function prepareNavigation($nav){
+  $navPlayers = false;
+  $navBlogs = false;
+  $navPages = false;
+  $navCategory = false;
+  $navChart = false;
+  $navCompare = false;
+  $navProduct = false;
+  $navProfile = false;
+
+  switch($nav){
+    case 'Players':
+      $navPlayers = true;
+      break;
+    case 'Blogs':
+      $navBlogs = true;
+      break;
+    case 'Profile':
+      $navProfile = true;
+      break;
+    case 'Chart':
+      $navChart = true;
+      break;
+    case 'Compare':
+      $navCompare = true;
+      break;
+    case 'Category':
+      $navCategory = true;
+      break;
+    case 'Product':
+      $navProduct = true;
+      break;
+    case 'Pages':
+      $navPages = true;
+      break;
+    default:
+      $navProfile = true;
+  }
+
+  return compact("navPlayers","navBlogs","navPages","navCategory","navChart","navCompare","navProduct","navProfile");
+  
+}

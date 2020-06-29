@@ -42,31 +42,40 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent1">
       <ul class="navbar-nav">
         <li class="nav-item active px-2 animated bounceInDown delay-1s">
-          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#"><i class="pr-2 text-success" data-feather="users"></i>Players</a>
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navPlayers ? 'active' : '' }}" href="{{ route('admin.players') }}">
+            <i class="pr-2 text-success" data-feather="users"></i>Players</a>
         </li>
         <li class="nav-item active px-2 animated bounceInDown delay-1s">
-          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#"><i class="pr-2 text-warning" data-feather="paperclip"></i>Blogs</a>
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navBlogs ? 'active' : '' }}" href="{{ route('admin.blogs') }}">
+            <i class="pr-2 text-warning" data-feather="paperclip"></i>Blogs</a>
         </li>
         <li class="nav-item active px-2 animated bounceInDown delay-1s">
-          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#"><i class="pr-2 text-info" data-feather="sliders"></i>Pages</a>
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navPages ?  'active' : '' }}" href="{{ route('admin.pages') }}">
+            <i class="pr-2 text-info" data-feather="sliders"></i>Pages</a>
         </li>
         <li class="nav-item active px-2 animated bounceInDown delay-1s">
-          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#"><i class="pr-2 text-danger" data-feather="tag"></i>Categories</a>
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navCategory ?  'active' : '' }}" href="{{ route('admin.categories') }}">
+            <i class="pr-2 text-danger" data-feather="tag"></i>Categories</a>
         </li>
         <li class="nav-item active px-2 animated bounceInDown delay-1s">
-          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#"><i class="pr-2 text-primary" data-feather="shopping-bag"></i>Products</a>
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navProduct ?  'active' : '' }}" href="{{ route('admin.products') }}">
+            <i class="pr-2 text-primary" data-feather="shopping-bag"></i>Products</a>
         </li>
         <li class="nav-item active px-2 animated bounceInDown delay-1s">
-          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#"><i class="pr-2 text-success" data-feather="shopping-cart"></i>Chart</a>
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navChart ?  'active' : '' }}" href="{{ route('admin.chart') }}">
+            <i class="pr-2 text-success" data-feather="shopping-cart"></i>Chart</a>
         </li>
         <li class="nav-item active px-2 animated bounceInDown delay-1s">
-          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#"><i class="pr-2 text-warning" data-feather="codepen"></i>Compare</a>
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navCompare ?  'active' : '' }}" href="{{ route('admin.compare') }}">
+            <i class="pr-2 text-warning" data-feather="codepen"></i>Compare</a>
         </li>
         <li class="nav-item active px-2 animated bounceInDown delay-1s">
-          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover active" href="#"><i class="pr-2" data-feather="user"></i>Profile</a>
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navProfile ?  'active' : '' }}" href="{{ route('admin.profile') }}">
+            <i class="pr-2" data-feather="user"></i>Profile</a>
         </li>
         <li class="nav-item active px-2 animated bounceInDown delay-1s">
-          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#"><i class="pr-2" data-feather="log-out"></i>Sign Out</a>
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#">
+            <i class="pr-2" data-feather="log-out"></i>Sign Out</a>
         </li>
       </ul>
     </div>
