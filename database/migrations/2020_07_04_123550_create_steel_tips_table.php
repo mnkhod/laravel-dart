@@ -15,6 +15,7 @@ class CreateSteelTipsTable extends Migration
     {
         Schema::create('steel_tips', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id');
             $table->bigInteger("weight");
             $table->bigInteger("dart_weight");
             $table->text("dart_tungsten");

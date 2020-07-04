@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePlayerDartsTable extends Migration
+class CreateFlightsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreatePlayerDartsTable extends Migration
      */
     public function up()
     {
-        Schema::create('player_darts', function (Blueprint $table) {
+        Schema::create('flights', function (Blueprint $table) {
             $table->id();
             $table->foreignId("product_id");
-            $table->bigInteger("weight");
-            $table->bigInteger("dart_weight");
-            $table->text("dart_tungsten");
-            $table->text("dart_set");
-            $table->text("dart_flight");
-            $table->text("dart_shaft");
-            $table->text("dimensions");
+            $table->text("range");
+            $table->text("flight_shape");
+            $table->text("flight_thickness");
+            $table->text("micron");
             $table->timestamps();
         });
     }
@@ -34,6 +31,6 @@ class CreatePlayerDartsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('player_darts');
+        Schema::dropIfExists('flights');
     }
 }

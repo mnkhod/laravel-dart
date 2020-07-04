@@ -15,6 +15,7 @@ class CreateSoftTipsTable extends Migration
     {
         Schema::create('soft_tips', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("product_id");
             $table->bigInteger("barrel_weight");
             $table->bigInteger("full_weight");
             $table->bigInteger("weight");
