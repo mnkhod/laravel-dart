@@ -15,6 +15,7 @@
   <link href="{{ asset('assets/fonts/feather-font/css/iconfont.css') }}" rel="stylesheet" />
   <link href="{{ asset('assets/plugins/flag-icon-css/css/flag-icon.min.css') }}" rel="stylesheet" />
   <link href="{{ asset('assets/plugins/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" />
+  <link href="{{ asset('assets/plugins/hover-css/hover-min.css') }}" rel="stylesheet" />
   <link rel="stylesheet" href="{{ asset('assets/plugins/animate-css/animate.min.css') }}">
   <!-- end plugin css -->
 
@@ -33,7 +34,7 @@
   <!-- Nav Bar -->
   <nav class="navbar  navbar-expand-lg px-5 py-3 navbar-light bg-white">
     <a class="navbar-brand flex align-items-center" href="#">
-        <span class="btn btn-outline-danger btn-lg mr-2 animated bounceInLeft delay-1s"><i class="pr-2" data-feather="crosshair"></i>Dart</span> 
+        <span class="btn btn-outline-danger btn-lg mr-2 animated bounceInLeft delay-1s "><i class="pr-2" data-feather="crosshair"></i>Dart</span> 
         <span class="font-weight-bold text-primary animated fadeIn delay-3s h5">Admin Dashboard</span> </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,41 +43,41 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent1">
       <ul class="navbar-nav">
-        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+        <li class="nav-item active px-2 animated bounceInDown delay-1s hvr-icon-pulse">
           <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navPlayers ? 'active' : '' }}" href="{{ route('admin.players') }}">
-            <i class="pr-2 text-success" data-feather="users"></i>Players</a>
+            <i class="pr-2 text-success hvr-icon" data-feather="users"></i>Players</a>
         </li>
-        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+        <li class="nav-item active px-2 animated bounceInDown delay-1s hvr-icon-pulse">
           <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navBlogs ? 'active' : '' }}" href="{{ route('admin.blogs') }}">
-            <i class="pr-2 text-warning" data-feather="paperclip"></i>Blogs</a>
+            <i class="pr-2 text-warning hvr-icon" data-feather="paperclip"></i>Blogs</a>
         </li>
-        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+        <li class="nav-item active px-2 animated bounceInDown delay-1s hvr-icon-pulse">
           <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navPages ?  'active' : '' }}" href="{{ route('admin.pages') }}">
-            <i class="pr-2 text-info" data-feather="sliders"></i>Pages</a>
+            <i class="pr-2 text-info hvr-icon" data-feather="sliders"></i>Pages</a>
         </li>
-        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+        <li class="nav-item active px-2 animated bounceInDown delay-1s hvr-icon-pulse">
           <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navCategory ?  'active' : '' }}" href="{{ route('admin.categories') }}">
-            <i class="pr-2 text-danger" data-feather="tag"></i>Categories</a>
+            <i class="pr-2 text-danger hvr-icon" data-feather="tag"></i>Categories</a>
         </li>
-        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+        <li class="nav-item active px-2 animated bounceInDown delay-1s hvr-icon-pulse">
           <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navProduct ?  'active' : '' }}" href="{{ route('admin.products') }}">
-            <i class="pr-2 text-primary" data-feather="shopping-bag"></i>Products</a>
+            <i class="pr-2 text-primary hvr-icon" data-feather="shopping-bag"></i>Products</a>
         </li>
-        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+        <li class="nav-item active px-2 animated bounceInDown delay-1s hvr-icon-pulse">
           <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navChart ?  'active' : '' }}" href="{{ route('admin.chart') }}">
-            <i class="pr-2 text-success" data-feather="shopping-cart"></i>Chart</a>
+            <i class="pr-2 text-success hvr-icon" data-feather="shopping-cart"></i>Chart</a>
         </li>
-        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+        <li class="nav-item active px-2 animated bounceInDown delay-1s hvr-icon-pulse">
           <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navCompare ?  'active' : '' }}" href="{{ route('admin.compare') }}">
-            <i class="pr-2 text-warning" data-feather="codepen"></i>Compare</a>
+            <i class="pr-2 text-warning hvr-icon" data-feather="codepen"></i>Compare</a>
         </li>
-        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+        <li class="nav-item active px-2 animated bounceInDown delay-1s hvr-icon-pulse">
           <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navProfile ?  'active' : '' }}" href="{{ route('admin.profile') }}">
-            <i class="pr-2" data-feather="user"></i>Profile</a>
+            <i class="pr-2 hvr-icon" data-feather="user"></i>Profile</a>
         </li>
-        <li class="nav-item active px-2 animated bounceInDown delay-1s">
+        <li class="nav-item active px-2 animated bounceInDown delay-1s hvr-icon-pulse">
           <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#">
-            <i class="pr-2" data-feather="log-out"></i>Sign Out</a>
+            <i class="pr-2 hvr-icon" data-feather="log-out"></i>Sign Out</a>
         </li>
       </ul>
     </div>

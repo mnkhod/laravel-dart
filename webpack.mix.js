@@ -25,6 +25,7 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.copyDirectory('node_modules/feather-icons/dist', 'public/assets/plugins/feather-icons')
   .copyDirectory('node_modules/flag-icon-css', 'public/assets/plugins/flag-icon-css')
+  .copyDirectory('node_modules/hover.css/css', 'public/assets/plugins/hover-css')
   .copyDirectory('node_modules/@mdi/font', 'public/assets/plugins/@mdi')
   .copyDirectory(['node_modules/perfect-scrollbar/dist', 'node_modules/perfect-scrollbar/css'] , 
     'public/assets/plugins/perfect-scrollbar')

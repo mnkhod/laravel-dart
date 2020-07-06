@@ -15,59 +15,89 @@
   <div class="row">
     
   <div class="px-5 pt-2 col-sm-6 mb-5 animated bounceInRight delay-1s">
-    <div class="card">
-      <div class="card-body">
-        <h6 class="card-title">Dart Style</h6>
-        <canvas id="bar"></canvas>
+
+    @if ($players)
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Dart Style</h6>
+          <canvas id="bar"></canvas>
+        </div>
       </div>
-    </div>
+    @else
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Dart Style</h6>
+          <p>No Players Data Detected</p>
+        </div>
+      </div>
+    @endif
+
   </div>
   <div class="px-5 pt-2 col-sm-6 mb-5 animated bounceInLeft delay-1s">
+    @if ($players)
     <div class="card">
       <div class="card-body">
         <h6 class="card-title">Throwing Style</h6>
         <canvas id="donut"></canvas>
       </div>
     </div>
+    @else
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">Throwing Style</h6>
+        <p>No Players Data Detected</p>
+      </div>
+    </div>
+    @endif
+
   </div>
 
     <div class="col-sm-12">
       <div class="card p-3 shadow-lg animated bounceInUp delay-1s">
-        <div class="card-body w-100 text-nowrap" style="overflow-x: scroll">
-           <table id="playerTable" class="table table-hover table-bordered">
-            <thead>
-              <tr>
+        @if ($players)
+          <div class="card-body w-100 text-nowrap" style="overflow-x: scroll">
+        @else
+          <div class="card-body w-100 text-nowrap">
+        @endif
+           <h2>Players Data</h2>
+           @if ($players)
+             <table id="playerTable" class="table table-hover table-bordered">
+              <thead>
+                <tr>
+                  @foreach($players as $player)
+                    @foreach($player as $key=>$item)
+                      @if ($key !== "created_at" && $key !== "updated_at")
+                      <th>{{ Str::ucfirst( Str::replaceArray('_',[' '], $key)  ) }}</th>
+                      @endif
+                    @endforeach
+                    @break
+                  @endforeach
+                </tr>
+              </thead>
+
+              <tbody> 
                 @foreach($players as $player)
+                <tr>
                   @foreach($player as $key=>$item)
-                    @if ($key !== "created_at" && $key !== "updated_at")
-                    <th>{{ Str::ucfirst( Str::replaceArray('_',[' '], $key)  ) }}</th>
+                      @if ($key !== "created_at" && $key !== "updated_at")
+                        <td class="p-0 py-2 m-0 text-center">
+                          @if($key === 'image')
+                             <img src="{{$item}}" class="rounded" alt="player-img">
+                          @elseif($key === 'description')
+                            {{ Str::limit($item,25) }}
+                          @else
+                            {{$item}}
+                          @endif
+                        </td>
                     @endif
                   @endforeach
-                  @break
+                </tr>
                 @endforeach
-              </tr>
-            </thead>
-
-            <tbody> 
-              @foreach($players as $player)
-              <tr>
-                @foreach($player as $key=>$item)
-                    @if ($key !== "created_at" && $key !== "updated_at")
-                      <td class="p-0 py-2 m-0 text-center">
-                        @if($key === 'image')
-                           <img src="{{$item}}" class="rounded" alt="player-img">
-                        @elseif($key === 'description')
-                          {{ Str::limit($item,25) }}
-                        @else
-                          {{$item}}
-                        @endif
-                      </td>
-                  @endif
-                @endforeach
-              </tr>
-              @endforeach
-            </tbody>
-          </table> 
+              </tbody>
+            </table> 
+           @else
+             <p>No Players Data Detected</p>
+           @endif
         </div>
       </div>
     </div>
