@@ -12,13 +12,16 @@
 */
 
 use App\Players;
+use App\Faq;
 
 Route::get('/', function () {
   return view('index');
 })->name("homePage");
 
 Route::get('/faq', function(){
-		return view('faq');
+    $faqs = Faq::all();
+
+		return view('faq', ["faqs" => $faqs]);
 })->name('faq');
 
 Route::get('/aboutUs', function () {

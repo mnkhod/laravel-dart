@@ -25,13 +25,17 @@
 				<div class="c-quest__list">
 						<ul>
 								<h2>Асуултууд</h2>
+                @php $count=1; @endphp
+                @foreach($faqs as $faq)
 								<li>
 										<div class="u-flex_between">
-												<span>Асуулт бла Postitis  бла Postitisбла Postббла Postitisла Postitisitis</span>
+												<span>{{$count}}) {{$faq->question}}</span>
 												<i class="fas fa-plus-circle"></i>
 										</div>
-										<p class="answer">Хариулт аа ав пэтка минь Хариулт аа ав пэтка минь Хариулт аа ав пэтка минь Хариулт аа ав пэтка минь</p>
+										<p class="answer">{{$faq->answer}}</p>
 								</li>
+                @php $count +=1; @endphp
+                @endforeach
 						</ul>
             
 						<div class="c-content pt-0">
