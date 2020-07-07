@@ -2,6 +2,7 @@
 
 @push('plugin-styles')
   <link href="{{ asset('assets/plugins/datatables-net/dataTables.bootstrap4.css') }}" rel="stylesheet" />
+  <link href="{{ asset('assets/plugins/dropify/css/dropify.min.css') }}" rel="stylesheet" />
 @endpush
 
 @section('content')
@@ -59,7 +60,7 @@
         @else
           <div class="card-body w-100 text-nowrap">
         @endif
-           <h2>Players Data</h2>
+           <h3 class="py-3">Players Data</h3>
            @if ($players)
              <table id="playerTable" class="table table-hover table-bordered">
               <thead>
@@ -77,10 +78,10 @@
 
               <tbody> 
                 @foreach($players as $player)
-                <tr>
+                <tr class="admin-row" row="{{$player['id']}}" style="cursor: pointer;">
                   @foreach($player as $key=>$item)
                       @if ($key !== "created_at" && $key !== "updated_at")
-                        <td class="p-0 py-2 m-0 text-center">
+                        <td class="p-0 py-2 m-0 text-center" id="{{ $player['id'] }}-{{$key}}" desc="{{ $key == 'description' ? $item : '' }}">
                           @if($key === 'image')
                              <img src="{{$item}}" class="rounded" alt="player-img">
                           @elseif($key === 'description')
@@ -103,13 +104,92 @@
     </div>
 
 
-    <div class="col-sm-6">
-    </div>
 
-    <div class="col-sm-6">
-    </div>
+
 
   </div>
+
+
+    <div id="form-data" class="row py-5">
+        <div class="col-sm-6  grid-margin stretch-card ">
+          <div class="card shadow-lg animated bounceInRight delay-1s">
+            <div class="card-body">
+              <h3 class="card-title">Player Base Information</h3>
+              <div class="form-group">
+                <label for="profileImage">Profile Image</label>
+                <input type="file" class="dropify" id="profileImage" data-height="200" data-default-file="/assets/images/notfound.jpg"/>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="Id">Id</label>
+                    <input type="text" class="form-control" id="playerId" autocomplete="off" placeholder="Id">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" autocomplete="off" placeholder="Name">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" rows="5"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="nickname">Nickname</label>
+                <input type="text" class="form-control" id="nickname" autocomplete="off" placeholder="Nickname">
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <form action="#" id="form" >
+        </form>
+
+        <div class="col-sm-6 grid-margin d-flex flex-column align-items-center">
+          <div class="card shadow-lg animated bounceInLeft delay-1s w-100">
+            <div class="card-body">
+              <h3 class="card-title">Player Extra Information</h3>
+                <div class="form-group">
+                  <label for="dartstyle">Dart Style</label>
+                  <select class="form-control" id="dartstyle">
+                    <option value="Select Style">Select Style</option>
+                    <option value="Specialist">Specialist</option>
+                    <option value="Parallel">Parallel</option>
+                    <option value="Scallop">Scallop</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="throwingstyle">Throwing Style</label>
+                  <select class="form-control" id="throwingstyle">
+                    <option value="Select Style">Select Style</option>
+                    <option value="Right Handed">Right Handed</option>
+                    <option value="Left Handed">Left Handed</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="bestmatch">Best Match</label>
+                  <input type="text" class="form-control" id="bestmatch" autocomplete="off" placeholder="Best Match">
+                </div>
+                <div class="form-group">
+                  <label for="ranktitle">Rank Title</label>
+                  <input type="text" class="form-control" id="ranktitle" autocomplete="off" placeholder="Rank Title">
+                </div>
+
+                <div class="d-flex justify-content-end">
+                  <button type="button" class="btn btn btn-outline-danger ml-4 px-5 shadow-lg animated bounceInUp delay-2s">Delete</button>
+                  <button type="button" class="btn btn btn-outline-success ml-4 px-5 shadow-lg animated bounceInUp delay-2s">Update</button>
+                </div>
+            </div>
+          </div>
+
+        </div>
+  </div>
+
 
 </div>
 
@@ -119,12 +199,43 @@
   <script src="{{ asset('assets/plugins/datatables-net/jquery.dataTables.js') }}"></script>
   <script src="{{ asset('assets/plugins/datatables-net-bs4/dataTables.bootstrap4.js') }}"></script>
 
+
   <script src="{{ asset('assets/plugins/chartjs/Chart.min.js') }}"></script>
+  <script src="{{ asset('assets/plugins/dropify/js/dropify.min.js') }}"></script>
 @endpush
 
 @push('custom-scripts')
  <script>
-  $(document).ready( function () {
+$(document).ready( function () {
+
+      $('.dropify').dropify();
+
+
+      $(".admin-row").click(function() {
+          let rowID = $(this).attr("row");
+
+          $(`#form-data .dropify-render img`).attr("src",$(`td#${rowID}-image img`).attr('src'));
+          $(`#form-data .dropify-filename-inner`).text($(`td#${rowID}-image img`).attr('src').split("/").pop());
+
+          $(`#form-data #playerId`).attr("value",$(`td#${rowID}-id`).text().trim());
+          $(`#form-data #name`).attr("value",$(`td#${rowID}-name`).text().trim());
+          $(`#form-data #description`).text($(`td#${rowID}-description`).attr('desc'));
+          $(`#form-data #nickname`).attr("value",$(`td#${rowID}-nickname`).text().trim());
+          $(`#form-data #bestmatch`).attr("value",$(`td#${rowID}-best_match`).text().trim());
+          $(`#form-data #ranktitle`).attr("value",$(`td#${rowID}-rank_title`).text().trim());
+          $(`#form-data #dartstyle`).val($(`td#${rowID}-dart_style`).text().trim());
+          $(`#form-data #dartstyle`).change();
+
+          $(`#form-data #throwingstyle`).val($(`td#${rowID}-throwing_style`).text().trim());
+          $(`#form-data #throwingstyle`).change();
+          
+          $('html, body').animate({
+              scrollTop: $("#form-data").offset().top
+          }, 500);
+
+      });
+
+
       $('#playerTable').DataTable({
         "aLengthMenu": [
           [10, 30, 50, -1],
@@ -147,6 +258,8 @@
         var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
         length_sel.removeClass('form-control-sm');
       });
+
+
 
   // Bar chart
 
