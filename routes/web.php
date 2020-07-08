@@ -93,6 +93,9 @@ Route::get('/logout',function(){
 Route::group(['prefix' => 'admin'], function(){
   Route::get('profile', function () { return view('/admin/profile',prepareNavigation('Profile')); })->name('admin.profile');
 
+  // Players
+  
+  
   Route::get('players', function () { 
     $arr = prepareNavigation('Players');
 
@@ -103,8 +106,23 @@ Route::group(['prefix' => 'admin'], function(){
     return view('/admin/players', $arr); 
   })->name('admin.players');
 
-  Route::get('blogs', function () { return view('/admin/blogs', prepareNavigation('Blogs')); })->name('admin.blogs');
 
+  // Blogs
+
+  Route::get('blogs', function () {
+    $arr = prepareNavigation('Blogs');
+
+    $players = Players::all()->toArray();
+    $arr += array('players' => $players);
+
+    return view('/admin/blogs', $arr); 
+  })->name('admin.blogs');
+
+
+
+
+
+  // PAGES
   Route::get('pages', function () { 
     $arr = prepareNavigation('Pages');
     $faqs = Faq::all()->toArray();
@@ -130,6 +148,11 @@ Route::group(['prefix' => 'admin'], function(){
 
     return redirect()->route('admin.pages');
   })->name('pages.faq.delete');
+
+
+
+
+
 
   Route::get('categories', function () { return view('/admin/categories', prepareNavigation('Category')); })->name('admin.categories');
   Route::get('products', function () { return view('/admin/products', prepareNavigation('Product')); })->name('admin.products');
