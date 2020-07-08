@@ -1,0 +1,18 @@
+runtime: php72
+env: flex
+env_variables:
+  APP_KEY: base64:RIAQizGOfACu71+WpxuIXe1l8Qy0opgD7dGe+tJxkdc=
+  APP_STORAGE: /tmp
+  VIEW_COMPILED_PATH: /tmp
+  CACHE_DRIVER: database
+  SESSION_DRIVER: database
+  ## Set these environment variables according to your CloudSQL configuration.
+  DB_DATABASE: dart
+  DB_USERNAME: root
+  DB_PASSWORD: 981014
+  ## for MYSQL, use DB_SOCKET:
+  DB_SOCKET: "/cloudsql/smooth-drive-281311:asia-east2:dart-db"
+  ## for PostgreSQL, use DB_HOST:
+  # DB_HOST: "/cloudsql/YOUR_CONNECTION_NAME"
+runtime_config:
+    document_root: public
