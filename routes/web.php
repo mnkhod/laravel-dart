@@ -16,7 +16,14 @@ use App\Faq;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
-  return view('index');
+  $players = App\Players::all();
+  $blogs = App\Blog::all();
+
+
+  return view('index',[
+    'players' => $players,
+    'blogs' => $blogs
+  ]);
 })->name("homePage");
 
 Route::get('/faq', function(){

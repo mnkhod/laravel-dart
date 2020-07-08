@@ -1,4 +1,4 @@
-@extends('layouts.home')
+@extends('layout.ui')
 @section('content')
     <!-- Swiper -->
     <div class="swiper-container">
@@ -44,11 +44,13 @@
             <h3>Танд санал болгох манай бүтээгдэхүүн</h3>
             <div class="c-content__items">
 
+@php /*
 	      @foreach($products as $p)
                 <div class="c-content__items--item">
                     @include('components.productCard',['product' => $p])
                 </div>
 	      @endforeach
+*/ @endphp
 
             </div>
             <button class="u-button" type="submit" onclick="window.location='{{ route('AllProducts') }}';" >Бүх бүтээгдэхүүн харах</button>
@@ -74,9 +76,21 @@
                 <span class="u-semititle">Тамирчин</span>
             </h2>
             <div class="c-content__items">
-                @foreach($players as $player)
+                @foreach($players->take(8) as $p)
                     <div class="c-content__items--item">
-                        @include('components.playerCard',['p'=>$player])
+                      <div class="u-pcard2 a-silver">
+                        <div class="u-pcard2__img">
+                          <img src="{{ asset($p->image) }}" alt="">
+                          <div class="u-pcard2__img--hover">
+                            <p>Nickname: {{$p->nickname}}</p>
+                            <p>Dart Style: {{$p->dart_style}}</p>
+                            <p>Throwing Style: {{$p->throwing_style}}</p>
+                            <p>Best Match: {{$p->best_match}}</p>
+                          </div>
+                        </div>
+                        <span id="player_name">{{$p->name}}</span>
+                        <span id="player_role">{{$p->rank_title}}</span>
+                      </div>  
                     </div>
                 @endforeach
             </div>
@@ -94,23 +108,23 @@
                 </span>
             </h2>
 
-            @foreach($blogs as $blog)
+            @foreach($blogs->take(4) as $blog)
             <div class="c-content__blogs">
-                <img class="a-imgshadow a-left" src="{{ asset(Voyager::image($blog->picture)) }}" alt="">
+                <img class="a-imgshadow a-left" src="{{ asset($blog->image) }}" alt="">
                 <div class="c-content__blogs--img a-left">
-                    <img class="scale-image a-left" src="{{ asset(Voyager::image($blog->picture)) }}" alt="">
+                    <img class="scale-image a-left" src="{{ asset($blog->image) }}" alt="">
                 </div>
 
                 <div class="c-content__blogs--info a-right">
                     <div class="a-relative">
-                        <h4>{{ App\BlogCategory::where('id',$blog->blogCategoryID)->first()->name }}</h4>
-                        <a href="{{ route('blogSingle',$blog->id) }}"><h2>{{Str::limit($blog->name,15)}}</h2></a>
-                        <p>{{Str::limit($blog->description,70)}}</p>
+                        <h4>{{ $blog->category->name }}</h4>
+                        <a href="{{ route('blogSingle',$blog->id) }}"><h2>{{Str::limit($blog->title,15)}}</h2></a>
+                        <p>{{Str::limit($blog->content,70)}}</p>
                         <div class="c-content__blogs--info--admin u-flex_wrap">
                             <div class="c-content__blogs--info--admin_info">
-                                <img src="{{ asset(Voyager::image(App\User::where('id',$blog->userID)->first()->avatar)) }}" alt="">
+                                <img src="{{ asset($blog->image) }}" alt="">
                                 <div>
-                                    <span>{{App\User::where('id',$blog->userID)->first()->name}}</span></br>
+                                    <span>{{$blog->user->name}}</span></br>
                                     <?php $curr = new DateTime($blog->created_at); ?>
                                     <p>{{$curr->format('Y-m-d')}}</p>
                                 </div>
