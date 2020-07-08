@@ -112,8 +112,8 @@ Route::group(['prefix' => 'admin'], function(){
   Route::get('blogs', function () {
     $arr = prepareNavigation('Blogs');
 
-    $players = Players::all()->toArray();
-    $arr += array('players' => $players);
+    $blogs = App\Blog::all();
+    $arr += array('blogs' => $blogs);
 
     return view('/admin/blogs', $arr); 
   })->name('admin.blogs');
