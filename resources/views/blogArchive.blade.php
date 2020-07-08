@@ -39,13 +39,13 @@
                     <div class="c-content__blogs--info a-right">
                         <div class="a-relative">
                             <h4>{{ $blog->category->name }}</h4>
-                            <a href="{{ route('blogSingle',$blog->id) }}"><h2>{{Str::limit($blog->title,15)}}</h2></a>
+                            <a class="text-5xl"  href="{{ route('blogSingle',$blog->id) }}">{{Str::limit($blog->title,15)}}</a>
                             <p>{{Str::limit($blog->content,70)}}</p>
                             <div class="c-content__blogs--info--admin u-flex_wrap">
                                 <div class="c-content__blogs--info--admin_info">
                                     <img src="{{ $blog->image }}" alt="">
                                     <div>
-                                      <span>{{ $blog->user->name }}</span></br>
+                                      <i class="text-sm">{{ $blog->user->name }}</i></br>
                                       <?php $curr = new DateTime($blog->created_at); ?>
                                       <p>{{$curr->format('Y-m-d')}}</p>
                                     </div>

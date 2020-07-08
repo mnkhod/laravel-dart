@@ -20,6 +20,7 @@
 
               <div id="faqSection" class="collapse" aria-labelledby="headingOne" data-parent="#faqSection">
                 <div class="card-body">
+                @if ($faqs)
                   <div class="mb-3 pb-3" style="overflow-x: scroll">
                     <table id="faqTable" class="table">
                       <thead>
@@ -53,6 +54,9 @@
                         @endforeach
                       </tbody>
                     </table>
+                @else
+                  <h4>No FAQ Data</h4>
+                @endif
                   </div>
 
                   <form class="mt-5 pt-3" action="{{ route('pages.faq.add') }}" method="POST">
@@ -115,7 +119,6 @@ $(document).ready( function () {
       });
 
       @endif
-
 
       
       new SimpleMDE({ element : document.getElementById("answerBox") });
