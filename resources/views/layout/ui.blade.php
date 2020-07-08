@@ -59,6 +59,7 @@
                     <a>Бүтээгдэхүүн</a>
                     <div class="home-dropdown__tab">
                       <ol>
+                        @php /*
                         @foreach(App\TopCategory::all() as $i)
                         <li>
                           <a href="{{ route('categories') }}">
@@ -66,6 +67,7 @@
                           </a>
                         </li>
                         @endforeach
+                        */ @endphp
                       </ol>
                     </div>
                     </li>
@@ -73,6 +75,7 @@
                     <a>Блог</a>
                     <div class="home-dropdown__tab">
                       <ol>
+                        @php /*
                         @foreach(App\BlogCategory::all() as $i)
                         <li>
                           <a href="{{ route('blogArchive') }}">
@@ -80,6 +83,7 @@
                           </a>
                         </li>
                         @endforeach
+                        */ @endphp
                       </ol>
                     </div>
                     </li>
@@ -92,6 +96,7 @@
                             All Players 
                           </a>
                         </li>
+                        @php /*
                         @foreach(App\Player::all() as $i)
                         <li>
                           <a href="{{ route('AllPlayers') }}">
@@ -99,6 +104,7 @@
                           </a>
                         </li>
                         @endforeach
+                        */ @endphp
                       </ol>
                     </div>
                     </li>

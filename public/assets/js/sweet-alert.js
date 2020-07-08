@@ -155,17 +155,6 @@ $(function() {
         }
       }])
     } else if (type === 'mixin') {
-      const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 1113000
-      });
-      
-      Toast.fire({
-        icon: 'success',
-        title: 'Signed in successfully'
-      })
     }
   }
 

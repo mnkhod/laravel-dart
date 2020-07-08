@@ -13,6 +13,7 @@
 
 use App\Players;
 use App\Faq;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
   return view('index');
@@ -103,7 +104,33 @@ Route::group(['prefix' => 'admin'], function(){
   })->name('admin.players');
 
   Route::get('blogs', function () { return view('/admin/blogs', prepareNavigation('Blogs')); })->name('admin.blogs');
-  Route::get('pages', function () { return view('/admin/pages', prepareNavigation('Pages')); })->name('admin.pages');
+
+  Route::get('pages', function () { 
+    $arr = prepareNavigation('Pages');
+    $faqs = Faq::all()->toArray();
+
+
+    $arr += array('faqs' => $faqs);
+    return view('/admin/pages', $arr); 
+  })->name('admin.pages');
+  
+  Route::post('pages/faq/add',function(Request $req){
+    $input = $req->all();
+    Faq::create($input);
+
+    $req->session()->flash('status','Added New Item To FAQ Data List');
+
+    return redirect()->route('admin.pages');
+  })->name('pages.faq.add');
+
+  Route::post('pages/faq/delete/{id}',function(Request $req,$id){
+    Faq::destroy($id);
+
+    $req->session()->flash('status','Deleted Item From FAQ Data List');
+
+    return redirect()->route('admin.pages');
+  })->name('pages.faq.delete');
+
   Route::get('categories', function () { return view('/admin/categories', prepareNavigation('Category')); })->name('admin.categories');
   Route::get('products', function () { return view('/admin/products', prepareNavigation('Product')); })->name('admin.products');
   Route::get('chart', function () { return view('/admin/chart', prepareNavigation('Chart')); })->name('admin.chart');
