@@ -41,7 +41,7 @@ Route::get('/categories', function () {
 })->name('categories');
 
 Route::get('/blogs', function () {
-  $blogs = Blog::all();  
+  $blogs = App\Blog::all();  
   return view('blogArchive',['blogs' => $blogs]);
 })->name('blogArchive');
 

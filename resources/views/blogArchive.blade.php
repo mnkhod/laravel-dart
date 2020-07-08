@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layout.nav-ui')
 
 
 @section('content')
@@ -32,20 +32,20 @@
 		<div class="c-content pt-0">
             @foreach($blogs as $blog)
                 <div class="c-content__blogs">
-                    <img class="a-imgshadow a-left" src="{{ Voyager::image($blog->picture) }}" alt="">
+                    <img class="a-imgshadow a-left" src="{{ asset($blog->image) }}" alt="">
                     <div class="c-content__blogs--img a-left">
                         <img class="scale-image a-left" src="/img/darts-wallpaper-hd-57876-59641-hd-wallpapers.jpg.jpg" alt="">
                     </div>
                     <div class="c-content__blogs--info a-right">
                         <div class="a-relative">
-                            <h4>{{ App\BlogCategory::where('id',$blog->blogCategoryID)->first()->name }}</h4>
-                            <a href="{{ route('blogSingle',$blog->id) }}"><h2>{{Str::limit($blog->name,15)}}</h2></a>
-                            <p>{{Str::limit($blog->description,70)}}</p>
+                            <h4>{{ $blog->category->name }}</h4>
+                            <a href="{{ route('blogSingle',$blog->id) }}"><h2>{{Str::limit($blog->title,15)}}</h2></a>
+                            <p>{{Str::limit($blog->content,70)}}</p>
                             <div class="c-content__blogs--info--admin u-flex_wrap">
                                 <div class="c-content__blogs--info--admin_info">
-                                    <img src="{{ Voyager::image(App\User::where('id',$blog->userID)->first()->avatar) }}" alt="">
+                                    <img src="{{ $blog->image }}" alt="">
                                     <div>
-                                      <span>{{App\User::where('id',$blog->userID)->first()->name}}</span></br>
+                                      <span>{{ $blog->user->name }}</span></br>
                                       <?php $curr = new DateTime($blog->created_at); ?>
                                       <p>{{$curr->format('Y-m-d')}}</p>
                                     </div>
@@ -75,17 +75,17 @@
             @endforeach
 
             <!-- Apparently, this is a fucking mobile versioun of blogs, which makes me lose my shit and do double the work -->
-            @for($i=0; $i<4; $i++)
+            @foreach($blogs->take(4) as $blog)
                 <div class="c-content__blogs2">
                     <div class="c-content__blogs2--single">
-                        <img class="c-content__blogs2--single--img" src="/img/darts-wallpaper-hd-57876-59641-hd-wallpapers.jpg.jpg" alt="">
+                        <img class="c-content__blogs2--single--img" src="{{ asset($blog->image) }}" alt="">
                         <div class="c-content__blogs2--single--info">
                             <div class="u-flex_between">
-                                <h4>Мэдээ</h4>
-                                <span>2020.20.20</span>
+                                <h4>{{ $blog->category->name }}</h4>
+                                <span>{{ date("Y-m-d ", strtotime($blog->created_at) ) }}</span>
                             </div>
-                            <h3>Дартс гэж юу вэ?</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <h3>{{ $blog->title }}</h3>
+                            <p>{{ $blog->content }}</p>
                             <div class="c-content__blogs2--single--info--social u-flex_between">
                                 <a class="u-hover_icon">
                                     <img src="/img/fb-red.png" alt="">
@@ -106,10 +106,10 @@
                             </div>
                         </div>
                         <img class="c-content__blogs2--single--author" src="/img/New folder/scream1.png" alt="">
-                        <p class="c-content__blogs2--single--name">Овог Админ</p>
+                        <p class="c-content__blogs2--single--name">{{ $blog->user->name }}</p>
                     </div>
                 </div>
-            @endfor
+            @endforeach
         </div>
 		<div class="c-content">
             <div class="c-content__nav">
