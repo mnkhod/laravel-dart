@@ -46,7 +46,7 @@ Route::get('/blogs', function () {
 })->name('blogArchive');
 
 Route::get('/blogs/{slug}',function($slug){
-    $blog = Blog::where('id',$slug)->first();
+    $blog = App\Blog::where('id',$slug)->first();
 		return view('blogSingle',['blog' => $blog]);
 })->name('blogSingle');
 

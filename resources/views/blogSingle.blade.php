@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layout.nav-ui')
 @section('link')
 <style>
 .c-blogsingle__left--title--name h2{
@@ -23,26 +23,26 @@
 							<div class="c-blogsingle__left--title--author">
                   <?php $curr = new DateTime($blog->created_at); ?>
 									<img src="/img/New folder/scream1.png" alt="">
-									<span>{{App\User::where('id',$blog->userID)->first()->name}}</span>
+									<span>{{ $blog->user->name }}</span>
 									<div class="blyad">
-											{{App\User::where('id',$blog->userID)->first()->name}}
+											{{ $blog->user->name }}
 											<p>{{$curr->format('Y-m-d')}}</p>
 									</div>
 							</div>
 							<div class="c-blogsingle__left--title--name">
-									<h2>{{ $blog->name }}</h2>
+									<h2>{{ $blog->title }}</h2>
 									<span>{{$curr->format('Y-m-d')}}</span>
 							</div>
 					</div>
 					<div class="c-blogsingle__left--content">
 							<div class="c-blogsingle__left--content--img">
-									<img src="{{ Voyager::image($blog->picture) }}" alt="">
-									<div class="u-button_red">{{ App\BlogCategory::where('id',$blog->blogCategoryID)->first()->name }}</div>
+									<img src="{{ $blog->image }}" alt="">
+									<div class="u-button_red">{{ $blog->category->name }}</div>
 							</div>
 							<div class="c-blogsingle__left--content--name">
 									<h2>Дартс гэж юу вэ?</h2>
 							</div>
-							<p>{{$blog->description}}</p>
+							<p>{{$blog->content}}</p>
 							<div class="u-flex_between">
 									<a class="u-hover_icon">
 											<img src="/img/fb-red.png" alt="">
@@ -70,7 +70,12 @@
 					<div class="u-flex_wrap" style="width: 100%;">
 						@foreach(App\Blog::all() as $b)
 							<div class="c-blogsingle__right--card">
-									@include('components.blogCard',['blog' => $b])
+                <div class="u-blogcard">
+                  <div class="u-blogcard__img">
+                      <img src="{{ $b->image }}" alt="">
+                  </div>
+                  <span>{{$blog->title}}</span>
+                </div>
 							</div>
 						@endforeach
 					</div>
