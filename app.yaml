@@ -1,5 +1,24 @@
-runtime: php72
-env: flex
+runtime: php73
+
+handlers:
+  - url: /assets
+    static_dir: public/assets
+
+  - url: /css
+    static_dir: public/css
+
+  - url: /fonts
+    static_dir: public/fonts
+
+  - url: /images
+    static_dir: public/images
+
+  - url: /img
+    static_dir: public/img
+
+  - url: /js
+    static_dir: public/js
+
 env_variables:
   APP_KEY: base64:RIAQizGOfACu71+WpxuIXe1l8Qy0opgD7dGe+tJxkdc=
   APP_STORAGE: /tmp
@@ -14,5 +33,4 @@ env_variables:
   DB_SOCKET: "/cloudsql/smooth-drive-281311:asia-east2:dart-db"
   ## for PostgreSQL, use DB_HOST:
   # DB_HOST: "/cloudsql/YOUR_CONNECTION_NAME"
-runtime_config:
-    document_root: public
+  

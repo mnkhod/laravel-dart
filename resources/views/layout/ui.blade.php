@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
        <!-- CSS -->
-       <link rel="stylesheet" href="/css/main-app.css">
-       <link rel="stylesheet" href="/css/yolo.css">
-	    <link rel="stylesheet" href="/css/header.css">
-	    <link rel="stylesheet" href="/css/countdown.css">
+       <link rel="stylesheet" href="{{ asset('/css/main-app.css') }}">
+       <link rel="stylesheet" href="{{ asset('/css/yolo.css') }}">
+	    <link rel="stylesheet" href="{{ asset('/css/header.css') }}">
+	    <link rel="stylesheet" href="{{ asset('/css/countdown.css') }}">
 
         <!-- Link Swiper's CSS -->
-        <link rel="stylesheet" href="/css/swiper.min.css">
-        
+        <link rel="stylesheet" href="{{ asset('/css/swiper.min.css') }}">
+       
     <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="/css/swiper.min.css">
+    <link rel="stylesheet" href="{{ asset('/css/swiper.min.css') }}">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
 	<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script defer src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
-    <script src="jquery-3.5.1.min.js"></script>
+    <script src="{{ asset('jquery-3.5.1.min.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 			@yield('link')
     <title>Darts</title>
@@ -36,7 +36,7 @@
         <div class="c-header u-flex_between" style="box-shadow: none;">
             <!-- PC Header -->
             <div class="c-header__left u-flex_between">
-							<img onclick="window.location='{{ route('homePage') }}';" src="/img/dats.png" alt="Company Logo">
+							<img onclick="window.location='{{ route('homePage') }}';" src="{{ asset('/img/dats.png') }}" alt="Company Logo">
                 <ul class="c-header__left--menu u-flex_between">
                     <li class="u-hover_main home-dropdown">
                     <a>Нүүр</a>
@@ -143,25 +143,25 @@
                             <h3>Холбоотой байх</h3>
                             <form action="">
                                 <input type="text" placeholder="Email оруулна уу">
-                                <a><img src="img/do-arrow2.png" alt=""></a>
+                                <a><img src="{{ asset('img/do-arrow2.png') }}" alt=""></a>
                             </form>
                             <h3>Биднийг дагах</h3>
                             <div class="u-flex_between">
                                 <a class="u-hover_icon">
                                     <img src="img/fb-red.png" alt="">
-                                    <img class="u-hover_icon--alt" src="img/fb-alt.png" alt="">
+                                    <img class="u-hover_icon--alt" src="{{ asset('img/fb-alt.png') }}" alt="">
                                 </a>
                                 <a class="u-hover_icon">
                                     <img src="img/twitter-red.png" alt="">
-                                    <img class="u-hover_icon--alt" src="img/logo2-1.png" alt="">
+                                    <img class="u-hover_icon--alt" src="{{ asset('img/logo2-1.png') }}" alt="">
                                 </a>
                                 <a class="u-hover_icon">
                                     <img src="img/instagram-red.png" alt="">
-                                    <img class="u-hover_icon--alt" src="img/logo3-1.png" alt="">
+                                    <img class="u-hover_icon--alt" src="{{ asset('img/logo3-1.png') }}" alt="">
                                 </a>
                                 <a class="u-hover_icon">
                                     <img src="img/youtube-red.png" alt="">
-                                    <img class="u-hover_icon--alt" src="img/logo4-1.png" alt="">
+                                    <img class="u-hover_icon--alt" src="{{ asset('img/logo4-1.png') }}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -172,11 +172,11 @@
 
             <div class="c-header__right u-flex_between">
                 <form action="" class="u-search u-flex_between">
-                    <img src="img/search-white.png" alt="Search Icon">
+                    <img src="{{ asset('img/search-white.png') }}" alt="Search Icon">
                     <input type="text" placeholder="Хайх зүйлээ оруулна уу...">
                 </form>
                 <div class="icon-with-hover">
-								<img src="/img/shopping-bag-6.png" alt="">
+								<img src="{{ asset('/img/shopping-bag-6.png') }}" alt="">
 								<div class="bag-hover-container">
 									<h3>Таны сагсанд байгаа бараанууд</h3>
 
@@ -184,7 +184,7 @@
 										<h4>Хэрэглэгчийн нэр</h4>
 									<nav class="able-to-scroll">	
 										<ul>
-											<li><img src="/img/shopping-bag-53.png" alt="">
+											<li><img src="{{ asset('/img/shopping-bag-53.png') }}" alt="">
 												<div class="inner-bag-hover-product ">
 													<h6>Барааны нэр</h6>
 													<div class="c-single__info--quan quantity">
@@ -198,7 +198,7 @@
 												<p>150'000</p>	
 												<button type="button" class="u-button_red-c">Хасах</button>
 											</li>
-											<li><img src="/img/shopping-bag-53.png" alt="">
+											<li><img src="{{ asset('/img/shopping-bag-53.png') }}" alt="">
 												<div class="inner-bag-hover-product ">
 													<h6>Барааны нэр</h6>
 													<div class="c-single__info--quan quantity">
@@ -212,7 +212,7 @@
 												<p>150'000</p>	
 												<button type="button" class="u-button_red-c">Хасах</button>
 											</li>
-											<li><img src="/img/shopping-bag-53.png" alt="">
+											<li><img src="{{ asset('/img/shopping-bag-53.png') }}" alt="">
 												<div class="inner-bag-hover-product ">
 													<h6>Барааны нэр</h6>
 													<div class="c-single__info--quan quantity">
@@ -226,7 +226,7 @@
 												<p>150'000</p>	
 												<button type="button" class="u-button_red-c">Хасах</button>
 											</li>
-											<li><img src="/img/shopping-bag-53.png" alt="">
+											<li><img src="{{ asset('/img/shopping-bag-53.png') }}" alt="">
 												<div class="inner-bag-hover-product ">
 													<h6>Барааны нэр</h6>
 													<div class="c-single__info--quan quantity">
@@ -252,7 +252,7 @@
 								</div>
 							</div>
 							<div class="icon-with-hover1">
-								<img src="/img/account1.png" alt="">
+								<img src="{{ asset('/img/account1.png') }}" alt="">
 								<div class="bag-hover-container1">
 									<h3>Нэвтрэх</h3>
 									<div class="inner-bag-hover1">
@@ -322,15 +322,15 @@
 		<h3>Холбоо барих</h3>
 		<ul>
 		    <li>
-			<img class="img-home" src="/img/New folder/home.png" alt="" width="30" height="30">
+			<img class="img-home" src="{{ asset('/img/New folder/home.png') }}" alt="" width="30" height="30">
 			<span>Манай хаяг</span>
 		    </li>
 		    <li>
-			<img src="/img/New folder/phone.png" alt="" width="40" height="40">
+			<img src="{{ asset('/img/New folder/phone.png') }}" alt="" width="40" height="40">
 			<span>95959595</span>
 		    </li>
 		    <li>
-			<img class="img-email" src="/img/email.png" alt="" width="20" height="20">
+			<img class="img-email" src="{{ asset('/img/email.png') }}" alt="" width="20" height="20">
 			<span>darts.mn@gmail.com</span>
 		    </li>
 		</ul>
@@ -339,25 +339,25 @@
 		<h3>Холбоотой байх</h3>
 		<form action="">
 		    <input type="text" placeholder="Email оруулна уу">
-		    <a><img src="/img/do-arrow2.png" alt=""></a>
+		    <a><img src="{{ asset('/img/do-arrow2.png') }}" alt=""></a>
 		</form>
 		<h3>Биднийг дагах</h3>
 		<div class="u-flex_between">
 		    <a class="u-hover_icon">
-			<img src="/img/fb-red.png" alt="">
+			<img src="{{ asset('/img/fb-red.png') }}" alt="">
 			<img class="u-hover_icon--alt" src="/img/fb-alt.png" alt="">
 		    </a>
 		    <a class="u-hover_icon">
-			<img src="/img/twitter-red.png" alt="">
-			<img class="u-hover_icon--alt" src="/img/logo2-1.png" alt="">
+			<img src="{{ asset('/img/twitter-red.png') }}" alt="">
+			<img class="u-hover_icon--alt" src="{{ asset('/img/logo2-1.png') }}" alt="">
 		    </a>
 		    <a class="u-hover_icon">
-			<img src="/img/instagram-red.png" alt="">
-			<img class="u-hover_icon--alt" src="/img/logo3-1.png" alt="">
+			<img src="{{ asset('/img/instagram-red.png') }}" alt="">
+			<img class="u-hover_icon--alt" src="{{ asset('/img/logo3-1.png') }}" alt="">
 		    </a>
 		    <a class="u-hover_icon">
-			<img src="/img/youtube-red.png" alt="">
-			<img class="u-hover_icon--alt" src="/img/logo4-1.png" alt="">
+			<img src="{{ asset('/img/youtube-red.png') }}" alt="">
+			<img class="u-hover_icon--alt" src="{{ asset('/img/logo4-1.png') }}" alt="">
 		    </a>
 		</div>
 	    </div>

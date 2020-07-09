@@ -6,10 +6,10 @@
 
     <!-- CSS -->
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/main-app.css">
-    <link rel="stylesheet" href="/css/yolo.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/countdown.css">
+    <link rel="stylesheet" href="{{ asset('/css/main-app.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/yolo.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/countdown.css') }}">
 
 	<!-- Slider -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
@@ -48,7 +48,7 @@
 			<div class="c-header u-flex_between a-relative">
 					<!-- PC Header -->
 					<div class="c-header__left u-flex_between">
-							<img onclick="window.location='{{ route('homePage') }}';" src="/img/dats.png" alt="Company Logo">
+							<img onclick="window.location='{{ route('homePage') }}';" src="{{ asset('/img/dats.png') }}" alt="Company Logo">
 							<ul class="c-header__left--menu u-flex_between black">
                     <li class="u-hover_main home-dropdown">
                     <a>Нүүр</a>
@@ -158,25 +158,25 @@
 													<h3>Холбоотой байх</h3>
 													<form action="">
 															<input type="text" placeholder="Email оруулна уу">
-															<a><img src="/img/do-arrow2.png" alt=""></a>
+															<a><img src="{{ asset('/img/do-arrow2.png') }}" alt=""></a>
 													</form>
 													<h3>Биднийг дагах</h3>
 													<div class="u-flex_between">
 															<a class="u-hover_icon">
-																	<img src="/img/fb-red.png" alt="">
-																	<img class="u-hover_icon--alt" src="/img/fb-alt.png" alt="">
+																	<img src="{{ asset('/img/fb-red.png') }}" alt="">
+																	<img class="u-hover_icon--alt" src="{{ asset('/img/fb-alt.png') }}" alt="">
 															</a>
 															<a class="u-hover_icon">
-																	<img src="/img/twitter-red.png" alt="">
-																	<img class="u-hover_icon--alt" src="/img/logo2-1.png" alt="">
+																	<img src="{{ asset('/img/twitter-red.png') }}" alt="">
+																	<img class="u-hover_icon--alt" src="{{ asset('/img/logo2-1.png') }}" alt="">
 															</a>
 															<a class="u-hover_icon">
-																	<img src="/img/instagram-red.png" alt="">
-																	<img class="u-hover_icon--alt" src="/img/logo3-1.png" alt="">
+																	<img src="{{ asset('/img/instagram-red.png') }}" alt="">
+																	<img class="u-hover_icon--alt" src="{{ asset('/img/logo3-1.png') }}" alt="">
 															</a>
 															<a class="u-hover_icon">
-																	<img src="/img/youtube-red.png" alt="">
-																	<img class="u-hover_icon--alt" src="/img/logo4-1.png" alt="">
+																	<img src="{{ asset('/img/youtube-red.png') }}" alt="">
+																	<img class="u-hover_icon--alt" src="{{ asset('/img/logo4-1.png') }}" alt="">
 															</a>
 													</div>
 											</div>
@@ -187,11 +187,11 @@
 
 					<div class="c-header__right u-flex_between">
 							<form action="" class="u-search u-flex_between">
-									<img src="/img/search-white.png" alt="Search Icon">
+									<img src="{{ asset('/img/search-white.png') }}" alt="Search Icon">
 									<input class="black text-lg ml-0 mr-auto" type="text" style="font-size:0.7em" placeholder="Хайх зүйлээ оруулна уу...">
 							</form>
 							<div class="icon-with-hover">
-								<img src="/img/shopping-bag-53.png" alt="">
+								<img src="{{ asset('/img/shopping-bag-53.png') }}" alt="">
 								<div class="bag-hover-container">
 									<h3>Таны сагсанд байгаа бараанууд</h3>
 
@@ -199,7 +199,7 @@
 										<h4>Хэрэглэгчийн нэр</h4>
 									<nav class="able-to-scroll">	
 										<ul>
-											<li><img src="/img/shopping-bag-53.png" alt="">
+											<li><img src="{{ asset('/img/shopping-bag-53.png') }}" alt="">
 												<div class="inner-bag-hover-product ">
 													<h6>Барааны нэр</h6>
 													<div class="c-single__info--quan quantity">
@@ -225,7 +225,7 @@
 								</div>
 							</div>
 							<div class="icon-with-hover1">
-								<img src="/img/account2.png" alt="">
+								<img src="{{ asset('/img/account2.png') }}" alt="">
 								<div class="bag-hover-container1">
 									<h3>Нэвтрэх</h3>
 									<div class="inner-bag-hover1">
@@ -299,15 +299,15 @@
 		<h3>Холбоо барих</h3>
 		<ul>
 		    <li>
-			<img class="img-home" src="/img/New folder/home.png" alt="" width="30" height="30">
+			<img class="img-home" src="{{ asset('/img/New folder/home.png') }}" alt="" width="30" height="30">
 			<span>Манай хаяг</span>
 		    </li>
 		    <li>
-			<img src="/img/New folder/phone.png" alt="" width="40" height="40">
+			<img src="{{ asset('/img/New folder/phone.png') }}" alt="" width="40" height="40">
 			<span>95959595</span>
 		    </li>
 		    <li>
-			<img class="img-email" src="/img/email.png" alt="" width="20" height="20">
+			<img class="img-email" src="{{ asset('/img/email.png') }}" alt="" width="20" height="20">
 			<span>darts.mn@gmail.com</span>
 		    </li>
 		</ul>
@@ -316,25 +316,25 @@
 		<h3>Холбоотой байх</h3>
 		<form action="">
 		    <input type="text" placeholder="Email оруулна уу">
-		    <a><img src="/img/do-arrow2.png" alt=""></a>
+		    <a><img src="{{ asset('/img/do-arrow2.png') }}" alt=""></a>
 		</form>
 		<h3>Биднийг дагах</h3>
 		<div class="u-flex_between">
 		    <a class="u-hover_icon">
-			<img src="/img/fb-red.png" alt="">
-			<img class="u-hover_icon--alt" src="/img/fb-alt.png" alt="">
+			<img src="{{ asset('/img/fb-red.png') }}" alt="">
+			<img class="u-hover_icon--alt" src="{{ asset('/img/fb-alt.png') }}" alt="">
 		    </a>
 		    <a class="u-hover_icon">
-			<img src="/img/twitter-red.png" alt="">
-			<img class="u-hover_icon--alt" src="/img/logo2-1.png" alt="">
+			<img src="{{ asset('/img/twitter-red.png') }}" alt="">
+			<img class="u-hover_icon--alt" src="{{ asset('/img/logo2-1.png') }}" alt="">
 		    </a>
 		    <a class="u-hover_icon">
-			<img src="/img/instagram-red.png" alt="">
-			<img class="u-hover_icon--alt" src="/img/logo3-1.png" alt="">
+			<img src="{{ asset('/img/instagram-red.png') }}" alt="">
+			<img class="u-hover_icon--alt" src="{{ asset('/img/logo3-1.png') }}" alt="">
 		    </a>
 		    <a class="u-hover_icon">
-			<img src="/img/youtube-red.png" alt="">
-			<img class="u-hover_icon--alt" src="/img/logo4-1.png" alt="">
+			<img src="{{ asset('/img/youtube-red.png') }}" alt="">
+			<img class="u-hover_icon--alt" src="{{ asset('/img/logo4-1.png') }}" alt="">
 		    </a>
 		</div>
 	    </div>
