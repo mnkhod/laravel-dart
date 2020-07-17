@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function blogs(){
       return $this->hasMany('App\Blog');
     }
+
+    public function role(){
+      return $this->hasOne('App\UserRole','id');
+    }
 }
