@@ -26,6 +26,20 @@ Route::get('/', function () {
   ]);
 })->name("homePage");
 
+Route::post('/login',function(Request $req){
+
+    $user = App\User::where('email',$req->get('email'))->where('password',$req->get('password'))->get()->first();
+
+    if($user){
+      Auth::login($user);
+      return redirect(route('admin.profile'));
+    }else{
+      return redirect()->back();
+    }
+
+
+})->name('login');
+
 Route::get('/faq', function(){
     $faqs = Faq::all();
 
@@ -77,7 +91,7 @@ Route::get('/profile/account',function(){
 Route::get('/logout',function(){
   Auth::logout();
   return redirect('/');
-});
+})->name('logout');
 
 
 
@@ -98,7 +112,12 @@ Route::get('/logout',function(){
 
 
 Route::group(['prefix' => 'admin'], function(){
-  Route::get('profile', function () { return view('/admin/profile',prepareNavigation('Profile')); })->name('admin.profile');
+  Route::get('profile', function () { 
+    $arr = prepareNavigation('Profile');
+    $arr += array('user' => Auth::user());
+
+    return view('/admin/profile',$arr); 
+  })->name('admin.profile')->middleware('auth');
 
   // Players
   

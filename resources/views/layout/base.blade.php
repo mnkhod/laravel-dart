@@ -43,6 +43,8 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent1">
       <ul class="navbar-nav">
+
+      @if (Auth::user()->role->name == "Admin")
         <li class="nav-item active px-2 animated bounceInDown delay-1s hvr-icon-pulse">
           <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navPlayers ? 'active' : '' }}" href="{{ route('admin.players') }}">
             <i class="pr-2 text-success hvr-icon" data-feather="users"></i>Players</a>
@@ -63,6 +65,7 @@
           <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navProduct ?  'active' : '' }}" href="{{ route('admin.products') }}">
             <i class="pr-2 text-primary hvr-icon" data-feather="shopping-bag"></i>Products</a>
         </li>
+      @endif
         <li class="nav-item active px-2 animated bounceInDown delay-1s hvr-icon-pulse">
           <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover {{ $navChart ?  'active' : '' }}" href="{{ route('admin.chart') }}">
             <i class="pr-2 text-success hvr-icon" data-feather="shopping-cart"></i>Chart</a>
@@ -76,7 +79,7 @@
             <i class="pr-2 hvr-icon" data-feather="user"></i>Profile</a>
         </li>
         <li class="nav-item active px-2 animated bounceInDown delay-1s hvr-icon-pulse">
-          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="#">
+          <a class="nav-link btn btn-outline-secondary px-3 href rounded-pill color-white-hover" href="{{ route('logout') }}">
             <i class="pr-2 hvr-icon" data-feather="log-out"></i>Sign Out</a>
         </li>
       </ul>

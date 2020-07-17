@@ -15,8 +15,8 @@
             <img src="https://iupac.org/wp-content/uploads/2018/05/default-avatar.png" class="img-fluid rounded-circle w-50" alt="profile-img">
           </div>
           <div class="p-4">
-            <input type="text" class="my-3 form-control rounded-pill text-center" autocomplete="off" placeholder="Username" value="Munkh-Od Ganzorigt">
-            <input type="text" class="my-3 form-control rounded-pill text-center" autocomplete="off" placeholder="Username" value="Admin">
+            <input type="text" class="my-3 form-control rounded-pill text-center" autocomplete="off" placeholder="Username" value="{{ $user->name }}">
+            <input type="text" class="my-3 form-control rounded-pill text-center" autocomplete="off" placeholder="Username" value="{{ $user->role->name }}">
           </div>
         </div>
       </div>

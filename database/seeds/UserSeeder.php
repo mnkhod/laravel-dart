@@ -11,14 +11,21 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('users')->insert([
-        'name' => 'Admin',
-        'user_role_id' => '2',
+      DB::table('users')->insert([[
+        'name' => 'Munkh-Od Ganzorigt',
+        'user_role_id' => '1',
         'email' => 'admin@admin.com',
-        'password' => '981014',
+        'password' => 'password',
         'created_at' => today(), 
         'updated_at' => today() 
-      ]
-      );
+      ],[
+        'name' => 'Munkh-Zul Ganzorigt',
+        'user_role_id' => '2',
+        'email' => 'user@user.com',
+        'password' => 'password',
+        'created_at' => today(), 
+        'updated_at' => today() 
+      ],
+      ]);
     }
 }

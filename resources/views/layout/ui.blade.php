@@ -256,12 +256,12 @@
 								<div class="bag-hover-container1">
 									<h3>Нэвтрэх</h3>
 									<div class="inner-bag-hover1">
-										<form action="/action_page.php" method="post">
-
+										<form action="{{ route('login') }}" method="post">
+                      @csrf
 											<div class="login-container">
 
-												<input type="text" placeholder="Хэрэглэгчийн нэр" name="uname" required>
-												<input type="password" placeholder="Нууц үг" name="psw" required>
+												<input type="text" placeholder="Хэрэглэгчийн Хаяг" name="email" required>
+												<input type="password" placeholder="Нууц үг" name="password" required>
 												<div class="in-one-row"> 
 													<label><input type="checkbox" checked="checked" name="remember"> Намайг сана</label>
 													<span class="psw"><a href="#">Нууц үг мартсан</a></span>
