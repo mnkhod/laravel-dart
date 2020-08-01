@@ -125,9 +125,7 @@ Route::group(['prefix' => 'admin'], function(){
   Route::get('players', function () { 
     $arr = prepareNavigation('Players');
 
-    $players = Players::all()->toArray();
-
-    $arr += array('players' => $players);
+    $arr += array('players' => Players::all()->toArray());
 
     return view('/admin/players', $arr); 
   })->name('admin.players');
@@ -151,10 +149,10 @@ Route::group(['prefix' => 'admin'], function(){
   // PAGES
   Route::get('pages', function () { 
     $arr = prepareNavigation('Pages');
-    $faqs = Faq::all()->toArray();
 
+    $arr += array('faqs' => Faq::all()->toArray());
+    $arr += array('sliders' => App\HomeSlider::all()->toArray());
 
-    $arr += array('faqs' => $faqs);
     return view('/admin/pages', $arr); 
   })->name('admin.pages');
   
@@ -174,6 +172,16 @@ Route::group(['prefix' => 'admin'], function(){
 
     return redirect()->route('admin.pages');
   })->name('pages.faq.delete');
+
+  // Home Slider
+  Route::post('pages/homeslider/submit/{id}',function(Request $req,$id){
+    dd($req->image);
+    App\HomeSlider::create($req->all());
+
+    $req->session()->flash('status','Deleted Item From FAQ Data List');
+
+    return redirect()->route('admin.pages');
+  })->name('pages.homeslider.submit');
 
 
 
